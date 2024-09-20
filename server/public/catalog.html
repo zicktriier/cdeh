@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог товаров</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Каталог товаров</h1>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Наши товары</h2>
+        <div class="product-list">
+          <!-- Здесь будут динамически добавлены товары -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+    <script>
+      // Пример данных товаров (позже заменим на данные из базы)
+      const products = [
+        {
+          id: 1,
+          name: "Товар 1",
+          price: "1000 руб.",
+          image: "placeholder.jpg",
+        },
+        {
+          id: 2,
+          name: "Товар 2",
+          price: "2000 руб.",
+          image: "placeholder.jpg",
+        },
+        {
+          id: 3,
+          name: "Товар 3",
+          price: "3000 руб.",
+          image: "placeholder.jpg",
+        },
+      ];
+
+      const productList = document.querySelector(".product-list");
+
+      products.forEach((product) => {
+        const productItem = document.createElement("div");
+        productItem.classList.add("product-item");
+        productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
+                <a href="product.html?id=${product.id}" class="button">Купить</a>
+            `;
+        productList.appendChild(productItem);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Информация о товаре</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Товар</h1>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="product-detail">
+        <img id="product-image" src="placeholder.jpg" alt="Товар" />
+        <div class="product-info">
+          <h2 id="product-name">Название товара</h2>
+          <p id="product-price">Цена: 1000 руб.</p>
+          <p id="product-description">Описание товара...</p>
+          <button class="button" id="buy-button">Купить</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Магазин. Все права защищены.</p>
+    </footer>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+
+      // Пример товаров (заменим на базу данных позже)
+      const products = [
+        {
+          id: 1,
+          name: "Товар 1",
+          price: "1000 руб.",
+          description: "Описание товара 1",
+          image: "placeholder.jpg",
+        },
+        {
+          id: 2,
+          name: "Товар 2",
+          price: "2000 руб.",
+          description: "Описание товара 2",
+          image: "placeholder.jpg",
+        },
+        {
+          id: 3,
+          name: "Товар 3",
+          price: "3000 руб.",
+          description: "Описание товара 3",
+          image: "placeholder.jpg",
+        },
+      ];
+
+      const product = products.find((p) => p.id == productId);
+
+      if (product) {
+        document.getElementById("product-name").textContent = product.name;
+        document.getElementById(
+          "product-price"
+        ).textContent = `Цена: ${product.price}`;
+        document.getElementById("product-description").textContent =
+          product.description;
+        document.getElementById("product-image").src = product.image;
+      }
+
+      document.getElementById("buy-button").addEventListener("click", () => {
+        alert(`Покупка товара: ${product.name} за ${product.price}`);
+        // Здесь будет интеграция с Яндекс Кассой
+      });
+    </script>
+  </body>
+</html>

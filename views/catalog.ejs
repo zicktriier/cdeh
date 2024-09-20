@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог товаров</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Каталог товаров</h1>
+      <nav>
+        <a href="/">Главная</a>
+        <a href="/admin">Админ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="product-list">
+          <% products.forEach(product => { %>
+          <div class="product-item">
+            <img src="<%= product.image %>" alt="<%= product.name %>" />
+            <h3><%= product.name %></h3>
+            <p><%= product.price %></p>
+            <a href="/product/<%= product.id %>" class="button">Подробнее</a>
+          </div>
+          <% }); %>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2024 Магазин. Все права защищены.</p>
+    </footer>
+  </body>
+</html>

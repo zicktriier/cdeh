@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Админ-панель</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Добавить новый товар</h2>
+        <form action="/admin/add" method="POST">
+          <label for="name">Название товара:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="price">Цена:</label>
+          <input type="text" id="price" name="price" required />
+          <label for="description">Описание:</label>
+          <textarea id="description" name="description" required></textarea>
+          <label for="image">Ссылка на изображение:</label>
+          <input type="text" id="image" name="image" required />
+          <button type="submit" class="button">Добавить товар</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
